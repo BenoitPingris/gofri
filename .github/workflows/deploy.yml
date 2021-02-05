@@ -16,4 +16,9 @@ jobs:
           key: ${{ secrets.GOFRI_SECRET }}
           port: 22
           script: |
-            touch pouet.json
+            cd projects/gofri
+            pkill node
+            git pull
+            npm i
+            npm run build
+            nohup npm run start &
