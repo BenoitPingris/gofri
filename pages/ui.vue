@@ -116,7 +116,7 @@
 
     <div class="space-y-4 bg-gray-100 rounded-lg p-10 shadow-md">
       <h2 class="font-bold text-4xl">Alerts</h2>
-      <Alert title="Card title">
+      <Alert>
         <template #icon>
           <svg
             class="w-10 h-10"
@@ -138,7 +138,7 @@
         nostrum asperiores! Suscipit, ad temporibus error libero necessitatibus
         alias praesentium.
       </Alert>
-      <Alert kind="danger" title="Card title">
+      <Alert kind="danger">
         <template #icon>
           <svg
             class="w-10 h-10"
@@ -160,7 +160,7 @@
         nostrum asperiores! Suscipit, ad temporibus error libero necessitatibus
         alias praesentium.
       </Alert>
-      <Alert kind="success" title="Card title">
+      <Alert kind="success">
         <template #icon>
           <svg
             class="w-10 h-10"
@@ -182,6 +182,24 @@
         nostrum asperiores! Suscipit, ad temporibus error libero necessitatibus
         alias praesentium.
       </Alert>
+    </div>
+
+    <div class="space-y-4 bg-gray-100 rounded-lg p-10 shadow-md">
+      <h2 class="font-bold text-4xl">Notifications</h2>
+      <Notification
+        title="Information notification!"
+        content="Nothing really important, just an information"
+      />
+      <Notification
+        kind="danger"
+        title="Something bad happened!"
+        content="Oops, it seems your bank account has been closed"
+      />
+      <Notification
+        kind="success"
+        title="Successfully Saved!"
+        content="Anyone with a link can now view this file"
+      />
     </div>
   </div>
 </template>
