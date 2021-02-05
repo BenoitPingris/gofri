@@ -2,7 +2,7 @@
   <div class="p-5 space-y-2">
     <div class="space-y-4 bg-gray-100 rounded-lg p-10 shadow-md">
       <div>
-        <h2 class="font-bold text-4xl">Buttonss</h2>
+        <h2 class="font-bold text-4xl">Buttons</h2>
         <div class="space-x-4">
           <Button>Primary</Button>
           <Button kind="secondary">Secondary</Button>
