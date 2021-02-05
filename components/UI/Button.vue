@@ -1,5 +1,10 @@
 <template>
-  <button :class="classes" @click="$emit('click', $event)">
+  <button
+    :type="type"
+    :disabled="loading"
+    :class="classes"
+    @click="$emit('click', $event)"
+  >
     <span v-if="$slots.leading">
       <slot name="leading" />
     </span>
@@ -36,6 +41,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    type: {
+      type: String,
+      default: 'button',
+    },
   },
   computed: {
     classes() {
@@ -67,11 +76,40 @@ export default {
       }[this.kind]
       return `${sizeClass} ${colorClass} ${
         this.outline ? 'font-semibold' : ''
+      } ${
+        this.loading ? 'loading' : ''
       } rounded-md border inline-flex space-x-2 items-center border-transparent`
     },
   },
 }
 </script>
 
-<style>
+<style scoped>
+.loading {
+  color: transparent;
+  position: relative;
+}
+
+.loading::before {
+  content: '';
+  position: absolute;
+  border: 2px solid white; /* find a way to customize the color */
+  border-right-color: transparent;
+  border-top-color: transparent;
+  height: 1em;
+  width: 1em;
+  border-radius: 1000px;
+  left: calc(50% - 1em / 2);
+  top: calc(50% - 1em / 2);
+  animation: spin 0.5s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
 </style>

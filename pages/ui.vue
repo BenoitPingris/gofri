@@ -2,12 +2,22 @@
   <div class="p-5 space-y-2">
     <div class="space-y-4 bg-gray-100 rounded-lg p-10 shadow-md">
       <div>
-        <h2 class="font-bold text-3xl">Buttons</h2>
+        <h2 class="font-bold text-4xl">Buttons</h2>
         <div class="space-x-4">
           <Button>Primary</Button>
           <Button kind="secondary">Secondary</Button>
           <Button kind="danger">Danger</Button>
           <Button kind="success">Success</Button>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="font-semibold text-xl">Buttons loading</h2>
+        <div class="space-x-4">
+          <Button loading>Primary</Button>
+          <Button loading kind="secondary">Secondary</Button>
+          <Button loading kind="danger">Danger</Button>
+          <Button loading kind="success">Success</Button>
         </div>
       </div>
 
@@ -76,19 +86,22 @@
     </div>
 
     <div class="space-y-4 bg-gray-100 rounded-lg p-10 shadow-md">
-      <h2 class="font-bold text-3xl">Inputs</h2>
+      <h2 class="font-bold text-4xl">Inputs</h2>
       <div class="space-y-2">
-        <div class="space-x-4">
-          <Input placeholder="coucou" />
-        </div>
-        <div>
+        <div class="space-y-4">
+          <Input placeholder="Placeholder" />
           <Input label="Label" placeholder="Placeholder" />
+          <Input
+            label="Input with an error"
+            error="There's an error"
+            placeholder="Placeholder"
+          />
         </div>
       </div>
     </div>
 
     <div class="space-y-4 bg-gray-100 rounded-lg p-10 shadow-md">
-      <h2 class="font-bold text-3xl">Cards</h2>
+      <h2 class="font-bold text-4xl">Cards</h2>
       <Card title="Card title">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae nihil
         veniam error iure odio animi? Quas ab voluptatem officiis cupiditate
@@ -102,7 +115,7 @@
     </div>
 
     <div class="space-y-4 bg-gray-100 rounded-lg p-10 shadow-md">
-      <h2 class="font-bold text-3xl">Alerts</h2>
+      <h2 class="font-bold text-4xl">Alerts</h2>
       <Alert title="Card title">
         <template #icon>
           <svg

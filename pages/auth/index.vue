@@ -2,7 +2,7 @@
   <form @submit.prevent="onSubmit" class="space-y-5">
     <Input
       :error="errors['username']"
-      vmodel="username"
+      v-model="username"
       label="Nom d'utilisateur"
       placeholder="jondoe"
     />
@@ -11,42 +11,40 @@
       v-model="password"
       label="Mot de passe"
       placeholder="********"
-    />
-    <Input
-      :error="errors['confirm']"
-      v-model="confirm"
-      label="Confirmer"
-      placeholder="********"
+      type="password"
     />
     <div class="flex justify-between items-center">
-      <Button type="submit">Inscription</Button>
-      <router-link class="text-gray-700" to="/auth"
-        >J'ai deja un compte</router-link
+      <Button type="submit" :loading="loading">Connexion</Button>
+      <router-link class="text-gray-700" to="/auth/register"
+        >Creer un compte</router-link
       >
     </div>
   </form>
 </template>
 
 <script>
+import { authStore } from '@/lib/store'
+
 export default {
   data() {
     return {
       loading: false,
       username: '',
       password: '',
-      confirm: '',
       errors: {},
     }
+  },
+  computed: {
+    token() {
+      return authStore.state.token
+    },
   },
   methods: {
     async onSubmit() {
       this.loading = true
       try {
-        await this.$authService.register(
-          this.username,
-          this.password,
-          this.confirm
-        )
+        const d = await this.$authService.login(this.username, this.password)
+        authStore.state.token = d.access_token
       } catch (e) {
         if (e.response.status === 422) {
           this.errors = e.response.data.detail.reduce(
@@ -63,6 +61,3 @@ export default {
   },
 }
 </script>
-
-<style>
-</style>

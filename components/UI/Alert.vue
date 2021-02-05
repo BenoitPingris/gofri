@@ -22,7 +22,7 @@ export default {
         danger: 'border-red-600',
       }[this.kind]
 
-      return `${colors} border-b-8 flex space-x-4 items-center rounded-t-md bg-white p-4 shadow`
+      return `${colors} border-b-8 flex flex-col md:flex-row space-y-4 md:space-x-4 items-center rounded-t-md bg-white p-4 shadow`
     },
     colors() {
       return {
