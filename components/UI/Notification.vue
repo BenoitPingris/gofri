@@ -1,5 +1,6 @@
 <template>
   <div
+    @click="remove"
     class="bg-white rounded-lg border-gray-300 border p-3 shadow-lg cursor-pointer hover:border-gray-500 transition-colors"
   >
     <div class="flex flex-row items-center">
@@ -29,6 +30,7 @@
 </template>
 
 <script>
+import { notifStore } from '~/lib/store/notifications'
 export default {
   props: {
     kind: {
@@ -47,6 +49,10 @@ export default {
     duration: {
       type: Number,
       default: 5,
+    },
+    id: {
+      type: String,
+      required: true,
     },
   },
 
@@ -69,6 +75,11 @@ export default {
         success: 'text-green-800',
         danger: 'text-red-800',
       }[this.kind]
+    },
+  },
+  methods: {
+    remove() {
+      notifStore.remove(this.id)
     },
   },
 }

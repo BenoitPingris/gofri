@@ -186,27 +186,29 @@
 
     <div class="space-y-4 bg-gray-100 rounded-lg p-10 shadow-md">
       <h2 class="font-bold text-4xl">Notifications</h2>
-      <Notification
-        title="Information notification!"
-        content="Nothing really important, just an information"
-      />
-      <Notification
-        kind="danger"
-        title="Something bad happened!"
-        content="Oops, it seems your bank account has been closed"
-      />
-      <Notification
-        kind="success"
-        title="Successfully Saved!"
-        content="Anyone with a link can now view this file"
-      />
+      <Button outline @click="notif('normal')">Normal notification</Button>
+      <Button outline kind="success" @click="notif('success')"
+        >Success notification</Button
+      >
+      <Button outline kind="danger" @click="notif('danger')"
+        >Danger notification</Button
+      >
     </div>
   </div>
 </template>
 
 <script>
+import { notifStore } from '~/lib/store/notifications'
 export default {
-  head: {},
+  methods: {
+    notif(t) {
+      notifStore.add({
+        title: 'Notification title',
+        content: 'Content of the notification',
+        kind: t,
+      })
+    },
+  },
 }
 </script>
 

@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { authStore } from '@/lib/store'
+import { authStore } from '@/lib/store/auth'
 
 export default {
   data() {
